@@ -51,12 +51,13 @@ def return_figures():
     df_merged["ratio"] = df_merged["deaths"] / df_merged["cases"]
     df_ratio = df_merged.sort_values(by="ratio", ascending=False)
     df_ratio = df_ratio[df_ratio["cases"] > 1000]
+    df_ratio["ratio"] = df_ratio["ratio"] * 100
     countries_high = df_ratio["countriesAndTerritories"][:10].tolist()
 
     graph_two.append(
         go.Bar(
             x = countries_high,
-            y = df_ratio.iloc[:10].ratio.tolist() * 100,
+            y = df_ratio.iloc[:10].ratio.tolist(),
             name = "death ratio"
         )
     )
