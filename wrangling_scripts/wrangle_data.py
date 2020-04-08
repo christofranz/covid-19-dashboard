@@ -76,7 +76,7 @@ def return_figures():
         text = df_merged['countriesAndTerritories'],
         colorscale = 'Blues',
         autocolorscale=False,
-        reversescale=True))
+        reversescale=False))
 
     layout_five = dict(title = 'Confirmed COVID-19 cases 20/04/08',
                 title_x=0.5,
